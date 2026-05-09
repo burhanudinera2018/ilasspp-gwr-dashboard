@@ -1,0 +1,21 @@
+nama_kabupaten,provinsi,Y,X_jarak,X_lebar_jalan,lat,lng
+Kota Kediri,Jawa Timur,3500000,25,8.5,-7.8169,112.0168
+Kabupaten Kediri,Jawa Timur,2800000,35,6.2,-7.7833,112.0833
+Kota Surabaya,Jawa Timur,5500000,0,12.3,-7.2575,112.7521
+Kabupaten Sidoarjo,Jawa Timur,4200000,15,9.5,-7.4531,112.7167
+Kota Malang,Jawa Timur,4000000,20,7.5,-7.9666,112.6326
+Kabupaten Malang,Jawa Timur,3200000,30,6.8,-8.1667,112.6667
+Kota Blitar,Jawa Timur,2900000,40,6.5,-8.0955,112.1609
+Kabupaten Blitar,Jawa Timur,2500000,50,5.5,-8.1333,112.2333
+Kota Madiun,Jawa Timur,3100000,45,7.2,-7.6167,111.5167
+Kabupaten Madiun,Jawa Timur,2700000,55,6.0,-7.6167,111.5167
+Kota Semarang,Jawa Tengah,4800000,0,10.5,-6.9667,110.4167
+Kabupaten Semarang,Jawa Tengah,3500000,20,7.5,-6.9667,110.4167
+Kota Yogyakarta,DI Yogyakarta,4500000,0,9.5,-7.7956,110.3695
+Kabupaten Sleman,DI Yogyakarta,3800000,15,8.0,-7.7956,110.3695
+Kota Bandung,Jawa Barat,4600000,0,11.0,-6.9175,107.6191
+Kabupaten Bandung,Jawa Barat,3600000,25,7.0,-6.9175,107.6191
+Kota Bekasi,Jawa Barat,5000000,10,12.0,-6.2383,106.9756
+Kabupaten Bekasi,Jawa Barat,4000000,20,9.0,-6.2383,106.9756
+Kota Bogor,Jawa Barat,3900000,30,7.5,-6.5971,106.8060
+Kabupaten Bogor,Jawa Barat,3400000,40,6.5,-6.5971,106.8060

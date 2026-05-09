@@ -1,0 +1,40 @@
+========== RINGKASAN HASIL GWR - PROYEK ILASPP ==========
+
+Tanggal analisis: Sat May  9 10:48:41 2026 
+
+--- STATISTIK MODEL ---
+Jumlah sampel: 20 
+Bandwidth optimal: 186.22 meter
+Quasi-global R2: 0.9691
+
+--- KOEFISIEN LEBAR JALAN ---
+Minimum: 0.05785 
+Median: 0.06412 
+Maximum: 0.06746 
+
+--- KOEFISIEN JARAK KE PUSAT KOTA ---
+Minimum (paling negatif): -0.00661 
+Median: -0.00568 
+Maximum (mendekati 0): -0.00065 
+
+--- TABEL KOEFISIEN PER KABUPATEN ---
+Kota Kediri | Lebar Jalan: 0.066 | Jarak: -0.0061 
+Kabupaten Kediri | Lebar Jalan: 0.0658 | Jarak: -0.0061 
+Kota Surabaya | Lebar Jalan: 0.0635 | Jarak: -0.0064 
+Kabupaten Sidoarjo | Lebar Jalan: 0.0634 | Jarak: -0.0065 
+Kota Malang | Lebar Jalan: 0.0631 | Jarak: -0.0065 
+Kabupaten Malang | Lebar Jalan: 0.0626 | Jarak: -0.0066 
+Kota Blitar | Lebar Jalan: 0.0651 | Jarak: -0.0062 
+Kabupaten Blitar | Lebar Jalan: 0.0647 | Jarak: -0.0063 
+Kota Madiun | Lebar Jalan: 0.0675 | Jarak: -0.0058 
+Kabupaten Madiun | Lebar Jalan: 0.0675 | Jarak: -0.0058 
+Kota Semarang | Lebar Jalan: 0.0649 | Jarak: -0.0055 
+Kabupaten Semarang | Lebar Jalan: 0.0649 | Jarak: -0.0055 
+Kota Yogyakarta | Lebar Jalan: 0.0649 | Jarak: -0.0056 
+Kabupaten Sleman | Lebar Jalan: 0.0649 | Jarak: -0.0056 
+Kota Bandung | Lebar Jalan: 0.0579 | Jarak: -0.002 
+Kabupaten Bandung | Lebar Jalan: 0.0579 | Jarak: -0.002 
+Kota Bekasi | Lebar Jalan: 0.0619 | Jarak: -7e-04 
+Kabupaten Bekasi | Lebar Jalan: 0.0619 | Jarak: -7e-04 
+Kota Bogor | Lebar Jalan: 0.062 | Jarak: -6e-04 
+Kabupaten Bogor | Lebar Jalan: 0.062 | Jarak: -6e-04 

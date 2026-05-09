@@ -1,0 +1,41 @@
+id,harga_per_m2,luas_tanah_m2,lebar_jalan_m,jarak_ke_pusat_km,status_sertifikat,jenis_tanah,tahun_sertifikat,keterangan_lokasi
+1,18500000,120,12,3.2,SHM,Komersial,2020,Pusat Kota
+2,42000000,90,18,1.1,SHM,Komersial,2021,Pusat Kota
+3,7250000,250,3,8.5,SHGB,Perumahan,2015,Pinggiran
+4,999999999,500,25,0.5,SHM,Komersial,2022,Pusat Kota
+5,15200000,150,8,4.2,SHM,Perumahan,2019,Penyanggah
+6,31000000,110,15,2.3,SHM,Komersial,2021,Pusat Kota
+7,0,60,0,12.0,-,Perumahan,0,Pinggiran
+8,9800000,180,4,6.7,SHGB,Perumahan,2017,Pinggiran
+9,22500000,130,10,3.8,SHM,Komersial,2020,Penyanggah
+10,8750000,200,2,9.2,-,Perumahan,2016,Pinggiran
+11,35000000,85,20,1.8,SHM,Komersial,2021,Pusat Kota
+12,6200000,300,2.5,11.0,SHGB,Perumahan,2014,Pinggiran
+13,19800000,140,9,4.0,SHM,Komersial,2020,Penyanggah
+14,28500000,100,14,2.9,SHM,Komersial,2021,Pusat Kota
+15,0,0,0,0,SHM,Pertanian,0,Luar Kota
+16,11200000,170,5,5.5,SHGB,Perumahan,2018,Penyanggah
+17,26500000,115,13,3.0,SHM,Komersial,2021,Pusat Kota
+18,7300000,220,3.5,8.2,SHGB,Perumahan,2016,Pinggiran
+19,43000000,95,19,1.5,SHM,Komersial,2022,Pusat Kota
+20,5000000,280,1.5,14.0,SHGB,Pertanian,2013,Pinggiran
+21,17500000,145,8.5,4.8,SHM,Perumahan,2019,Penyanggah
+22,39500000,105,17,2.0,SHM,Komersial,2021,Pusat Kota
+23,8500000,210,3.8,7.5,SHGB,Perumahan,2017,Pinggiran
+24,24500000,125,11,3.5,SHM,Komersial,2020,Penyanggah
+25,15000000,160,7,5.0,SHM,Perumahan,2019,Penyanggah
+26,5500000,260,2,10.0,SHGB,Pertanian,2014,Pinggiran
+27,32000000,108,16,2.5,SHM,Komersial,2021,Pusat Kota
+28,8800000,195,4.5,7.0,SHGB,Perumahan,2018,Pinggiran
+29,21500000,135,9.5,4.1,SHM,Komersial,2020,Penyanggah
+30,6800000,240,2.8,9.5,SHGB,Perumahan,2015,Pinggiran
+31,10000000,185,5.5,6.0,SHM,Perumahan,2019,Penyanggah
+32,38000000,98,16.5,2.2,SHM,Komersial,2021,Pusat Kota
+33,4500000,320,1.2,15.0,SHGB,Pertanian,2012,Pinggiran
+34,20500000,138,9,4.5,SHM,Komersial,2020,Penyanggah
+35,12500000,165,6.5,5.8,SHM,Perumahan,2019,Penyanggah
+36,29500000,112,14.5,2.7,SHM,Komersial,2021,Pusat Kota
+37,7800000,230,3.2,8.8,SHGB,Perumahan,2017,Pinggiran
+38,23500000,128,10.5,3.9,SHM,Komersial,2020,Penyanggah
+39,9200000,190,5,6.5,SHGB,Perumahan,2018,Pinggiran
+40,41000000,92,18.5,1.3,SHM,Komersial,2022,Pusat Kota

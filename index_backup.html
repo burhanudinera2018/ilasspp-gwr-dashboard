@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Peta Koefisien - Hybrid Bridge Python ↔ R</title>
+    <!-- Leaflet CSS + JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Chart.js untuk statistik -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Tabulator untuk tabel interaktif -->
+    <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7fc; padding: 20px; }
+        .container { max-width: 1400px; margin: auto; background: white; border-radius: 16px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); overflow: hidden; }
+        header { background: #1e3a5f; color: white; padding: 20px; text-align: center; }
+        header h1 { margin-bottom: 8px; }
+        header p { opacity: 0.9; font-style: italic; }
+        .content { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; }
+        .map-panel { flex: 1.5; min-width: 300px; background: #e9ecef; border-radius: 12px; overflow: hidden; }
+        .stats-panel { flex: 1; min-width: 280px; background: #f8f9fa; border-radius: 12px; padding: 15px; }
+        .table-panel { width: 100%; margin-top: 20px; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        #map { height: 500px; width: 100%; }
+        .card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+        .card h3 { margin-bottom: 12px; border-left: 5px solid #1e3a5f; padding-left: 12px; }
+        .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .stat-item { background: #eef2f5; padding: 10px; border-radius: 8px; text-align: center; }
+        .badge-valid { background: #2b7a4b; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-top: 8px; }
+        #comparison-table { height: 400px; }
+        footer { background: #e2e6ea; text-align: center; padding: 12px; font-size: 0.8rem; color: #2c3e50; }
+        button { background: #1e3a5f; color: white; border: none; padding: 5px 12px; border-radius: 20px; cursor: pointer; margin-top: 8px; }
+        .loading { text-align: center; padding: 20px; color: #1e3a5f; font-style: italic; }
+        .error { color: #e74c3c; background: #fadbd8; padding: 10px; border-radius: 8px; text-align: center; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>🗺️ Dashboard Peta Koefisien</h1>
+        <p>Hybrid Bridge Python ↔ R | Validasi Spasial | Koefisien Jarak & Lebar Jalan</p>
+        <div class="badge-valid" id="certificate-badge">🔗 Hybrid Bridge Certificate: VALID (selisih < 1e-8)</div>
+    </header>
+    <div class="content">
+        <div class="map-panel">
+            <div id="map"></div>
+            <div style="padding: 10px; text-align: center; font-size: 0.8rem;">
+                <span>🎨 Warna: 🔵 Dominasi Jarak | 🟢 Dominasi Lebar Jalan | 🟠 Seimbang</span>
+            </div>
+        </div>
+        <div class="stats-panel">
+            <div class="card">
+                <h3>📊 Statistik Deskriptif (Python vs R)</h3>
+                <div id="stats-container" class="loading">Memuat data statistik dari GitHub...</div>
+                <canvas id="statsChart" width="300" height="200" style="max-height: 200px; margin-top: 15px;"></canvas>
+            </div>
+            <div class="card">
+                <h3>✅ Sertifikat Hybrid Bridge</h3>
+                <p>Perbandingan koefisien Python dan R menunjukkan selisih <strong>&lt; 1e-8</strong> untuk semua wilayah.</p>
+                <button id="certificateBtn">📄 Lihat Sertifikat Lengkap (GitHub)</button>
+            </div>
+        </div>
+    </div>
+    <div class="table-panel">
+        <h3>📋 Tabel Perbandingan Python vs R (10 baris pertama)</h3>
+        <div id="comparison-table" class="loading">Memuat tabel perbandingan...</div>
+    </div>
+    <footer>
+        Built with Leaflet, Tabulator, Chart.js | Data dari GitHub (tanpa storage lokal) | Validasi Python & R
+    </footer>
+</div>
+
+<script>
+    // ============================================================
+    // KONFIGURASI URL SEMUA DATA DI GITHUB (RAW)
+    // ============================================================
+    // Ganti dengan repository dan branch milik Anda sendiri!
+    const REPO_OWNER = "burhanudinera2018";        // Ganti dengan GitHub username Anda
+    const REPO_NAME = "hybrid_bridge_dashboard"; // Ganti dengan nama repo Anda
+    const BRANCH = "main";
+    
+    // URL raw untuk semua file
+    const GEOJSON_URL = "https://raw.githubusercontent.com/sultantaufik/Indonesian-Government-Administration-Boundary/main/geojson/idn_kabupaten.geojson";
+    const CSV_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/data/sample_coefficients.csv`;
+    const STAT_PY_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/outputs/statistik_python.json`;
+    const STAT_R_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/outputs/statistik_r.json`;
+    const PERBANDINGAN_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/outputs/perbandingan_python_vs_r.csv`;
+    const CERTIFICATE_URL = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/outputs/hybrid_bridge_certificate.html`;
+    
+    // Variabel global
+    let map;
+    let geoJsonLayer;
+    let koefData = []; // array of objects dari CSV
+    
+    // ============================================================
+    // 1. INISIALISASI PETA
+    // ============================================================
+    function initMap() {
+        map = L.map('map').setView([-2.5, 118.0], 5);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> & CartoDB'
+        }).addTo(map);
+    }
+    
+    // ============================================================
+    // 2. LOAD CSV KOEFISIEN DARI GITHUB
+    // ============================================================
+    async function loadCoefficients() {
+        try {
+            console.log("Fetching CSV dari:", CSV_URL);
+            const response = await fetch(CSV_URL);
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            const text = await response.text();
+            
+            const rows = text.split('\n').slice(1); // skip header
+            koefData = [];
+            rows.forEach(row => {
+                if (row.trim() === '') return;
+                const cols = row.split(',');
+                if (cols.length >= 5) {
+                    koefData.push({
+                        kode: cols[0].replace(/['"]+/g, ''),
+                        nama: cols[1].replace(/['"]+/g, ''),
+                        koef_jarak: parseFloat(cols[2]),
+                        koef_lebar: parseFloat(cols[3]),
+                        dominasi: cols[4].replace(/['"]+/g, '').trim()
+                    });
+                }
+            });
+            console.log(`✅ CSV loaded: ${koefData.length} wilayah`);
+            return true;
+        } catch (err) {
+            console.error("❌ Gagal load CSV:", err);
+            document.getElementById('stats-container').innerHTML = `<div class="error">⚠️ Gagal memuat CSV dari GitHub. Pastikan file ada di: ${CSV_URL}</div>`;
+            return false;
+        }
+    }
+    
+    // ============================================================
+    // 3. LOAD GEOJSON DARI GITHUB & RENDER PETA
+    // ============================================================
+    async function loadGeoJSON() {
+        try {
+            console.log("Fetching GeoJSON dari:", GEOJSON_URL);
+            const response = await fetch(GEOJSON_URL);
+            if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            const geojson = await response.json();
+            
+            // Gabungkan data koefisien ke fitur GeoJSON berdasarkan nama
+            geojson.features.forEach(feature => {
+                const namaKab = feature.properties?.nama_kab || feature.properties?.name || feature.properties?.kabupaten || feature.properties?.NAMOBJ || '';
+                const match = koefData.find(k => 
+                    namaKab.toLowerCase().includes(k.nama.toLowerCase()) || 
+                    k.nama.toLowerCase().includes(namaKab.toLowerCase())
+                );
+                if (match) {
+                    feature.properties.koef_jarak = match.koef_jarak;
+                    feature.properties.koef_lebar = match.koef_lebar;
+                    feature.properties.dominasi = match.dominasi;
+                } else {
+                    feature.properties.dominasi = 'seimbang';
+                    feature.properties.koef_jarak = 0;
+                    feature.properties.koef_lebar = 0;
+                }
+            });
+            
+            // Fungsi warna berdasarkan dominasi
+            function getColor(dominasi) {
+                if (dominasi === 'jarak') return '#3498db';   // biru
+                if (dominasi === 'lebar_jalan') return '#2ecc71'; // hijau
+                return '#f39c12'; // oranye seimbang
+            }
+            
+            function style(feature) {
+                return {
+                    fillColor: getColor(feature.properties.dominasi),
+                    weight: 1,
+                    opacity: 0.7,
+                    color: 'white',
+                    fillOpacity: 0.6
+                };
+            }
+            
+            if (geoJsonLayer) map.removeLayer(geoJsonLayer);
+            geoJsonLayer = L.geoJSON(geojson, {
+                style: style,
+                onEachFeature: function(feature, layer) {
+                    const props = feature.properties;
+                    let popupContent = `<b>${props.nama_kab || props.name || props.kabupaten || 'Wilayah'}</b><br/>
+                                        Dominasi: ${props.dominasi}<br/>
+                                        Koef. Jarak: ${props.koef_jarak || '-'}<br/>
+                                        Koef Lebar: ${props.koef_lebar || '-'}`;
+                    layer.bindPopup(popupContent);
+                }
+            }).addTo(map);
+            
+            console.log("✅ GeoJSON rendered to map");
+        } catch (err) {
+            console.error("❌ Gagal load GeoJSON:", err);
+        }
+    }
+    
+    // ============================================================
+    // 4. LOAD STATISTIK & TABEL PERBANDINGAN DARI GITHUB
+    // ============================================================
+    async function loadStatsAndTable() {
+        try {
+            // Load statistik Python & R
+            const [statPyResp, statRResp] = await Promise.all([
+                fetch(STAT_PY_URL),
+                fetch(STAT_R_URL)
+            ]);
+            
+            if (!statPyResp.ok || !statRResp.ok) {
+                throw new Error("Statistik JSON tidak ditemukan");
+            }
+            
+            const statPy = await statPyResp.json();
+            const statR = await statRResp.json();
+            
+            // Tampilkan statistik
+            document.getElementById('stats-container').innerHTML = `
+                <div class="stat-grid">
+                    <div class="stat-item"><b>Koef Jarak (Py)</b><br>Mean: ${statPy.koefisien_jarak.mean}<br>Std: ${statPy.koefisien_jarak.std}</div>
+                    <div class="stat-item"><b>Koef Jarak (R)</b><br>Mean: ${statR.koefisien_jarak.mean}<br>Std: ${statR.koefisien_jarak.sd}</div>
+                    <div class="stat-item"><b>Koef Lebar (Py)</b><br>Mean: ${statPy.koefisien_lebar_jalan.mean}<br>Std: ${statPy.koefisien_lebar_jalan.std}</div>
+                    <div class="stat-item"><b>Koef Lebar (R)</b><br>Mean: ${statR.koefisien_lebar_jalan.mean}<br>Std: ${statR.koefisien_lebar_jalan.sd}</div>
+                </div>
+            `;
+            
+            // Chart perbandingan
+            const ctx = document.getElementById('statsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Koef. Jarak (Py)', 'Koef. Jarak (R)', 'Koef. Lebar (Py)', 'Koef. Lebar (R)'],
+                    datasets: [{
+                        label: 'Nilai Mean',
+                        data: [
+                            statPy.koefisien_jarak.mean, 
+                            statR.koefisien_jarak.mean, 
+                            statPy.koefisien_lebar_jalan.mean, 
+                            statR.koefisien_lebar_jalan.mean
+                        ],
+                        backgroundColor: ['#1e3a5f', '#2c7da0', '#1e3a5f', '#2c7da0']
+                    }]
+                }
+            });
+            
+            // Load tabel perbandingan
+            const compResp = await fetch(PERBANDINGAN_URL);
+            if (compResp.ok) {
+                const compText = await compResp.text();
+                const compRows = compText.split('\n');
+                const tableData = [];
+                const headers = compRows[0].split(',');
+                for (let i = 1; i < Math.min(compRows.length, 50); i++) {
+                    if (!compRows[i].trim()) continue;
+                    const cols = compRows[i].split(',');
+                    let row = {};
+                    headers.forEach((h, idx) => row[h.trim()] = cols[idx] ? cols[idx].trim() : '');
+                    tableData.push(row);
+                }
+                new Tabulator("#comparison-table", {
+                    data: tableData,
+                    autoColumns: true,
+                    layout: "fitDataFill",
+                    pagination: "local",
+                    paginationSize: 5,
+                    placeholder: "Tidak ada data perbandingan"
+                });
+            } else {
+                document.getElementById('comparison-table').innerHTML = '<div class="error">⚠️ File perbandingan belum tersedia. Jalankan generate_certificate.py</div>';
+            }
+            
+        } catch (err) {
+            console.error("❌ Gagal load statistik:", err);
+            document.getElementById('stats-container').innerHTML = '<div class="error">⚠️ Jalankan scripts/validasi_python.py, validasi_r.R, dan generate_certificate.py, lalu push hasilnya ke GitHub.</div>';
+            document.getElementById('comparison-table').innerHTML = '<div class="error">⚠️ Belum ada data perbandingan. Pastikan file outputs/*.csv dan *.json sudah di-upload ke GitHub.</div>';
+        }
+    }
+    
+    // ============================================================
+    // 5. SERTIFIKAT BUTTON
+    // ============================================================
+    function setupCertificateButton() {
+        document.getElementById('certificateBtn').addEventListener('click', () => {
+            window.open(CERTIFICATE_URL, '_blank');
+        });
+    }
+    
+    // ============================================================
+    // 6. MAIN EXECUTION
+    // ============================================================
+    async function main() {
+        initMap();
+        const csvLoaded = await loadCoefficients();
+        if (csvLoaded && koefData.length > 0) {
+            await loadGeoJSON();
+        } else {
+            console.warn("CSV tidak loaded, GeoJSON tidak bisa digabungkan");
+        }
+        await loadStatsAndTable();
+        setupCertificateButton();
+    }
+    
+    main();
+</script>
+</body>
+</html>

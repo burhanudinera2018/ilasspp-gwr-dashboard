@@ -1,0 +1,112 @@
+kode_wilayah,nama_kabupaten,provinsi,koefisien_jarak,koefisien_lebar_jalan,dominasi,selisih_jarak,selisih_lebar_jalan,valid
+IDN.001,Kota Banda Aceh,Aceh,1.1113,0.7675,jarak,0.0,0.0,True
+IDN.002,Kabupaten Aceh Besar,Aceh,2.6669,2.9961,seimbang,0.0,0.0,True
+IDN.003,Kabupaten Pidie,Aceh,2.0764,2.6435,lebar_jalan,0.0,0.0,True
+IDN.004,Kabupaten Bireuen,Aceh,1.7164,2.1369,lebar_jalan,0.0,0.0,True
+IDN.005,Kota Lhokseumawe,Aceh,0.5213,2.8272,lebar_jalan,0.0,0.0,True
+IDN.006,Kota Medan,Sumatera Utara,0.5212,2.6306,lebar_jalan,0.0,0.0,True
+IDN.007,Kabupaten Deli Serdang,Sumatera Utara,0.2568,0.8411,lebar_jalan,0.0,0.0,True
+IDN.008,Kota Binjai,Sumatera Utara,2.4387,2.8884,seimbang,0.0,0.0,True
+IDN.009,Kabupaten Langkat,Sumatera Utara,1.723,1.8641,seimbang,0.0,0.0,True
+IDN.010,Kota Pematangsiantar,Sumatera Utara,2.0118,2.6416,lebar_jalan,0.0,0.0,True
+IDN.011,Kabupaten Simalungun,Sumatera Utara,0.1556,2.8987,lebar_jalan,0.0,0.0,True
+IDN.012,Kabupaten Karo,Sumatera Utara,2.7188,1.2222,jarak,0.0,0.0,True
+IDN.013,Kota Tebing Tinggi,Sumatera Utara,2.3476,0.6192,jarak,0.0,0.0,True
+IDN.014,Kota Padang,Sumatera Barat,0.6733,0.961,lebar_jalan,0.0,0.0,True
+IDN.015,Kabupaten Padang Pariaman,Sumatera Barat,0.5909,1.5386,lebar_jalan,0.0,0.0,True
+IDN.016,Kota Bukittinggi,Sumatera Barat,0.5952,2.6722,lebar_jalan,0.0,0.0,True
+IDN.017,Kabupaten Agam,Sumatera Barat,0.9215,2.7961,lebar_jalan,0.0,0.0,True
+IDN.018,Kota Payakumbuh,Sumatera Barat,1.5168,0.3202,jarak,0.0,0.0,True
+IDN.019,Kabupaten Tanah Datar,Sumatera Barat,1.2663,1.7812,lebar_jalan,0.0,0.0,True
+IDN.020,Kota Pekanbaru,Riau,0.8863,1.5105,lebar_jalan,0.0,0.0,True
+IDN.021,Kabupaten Kampar,Riau,1.752,0.9441,jarak,0.0,0.0,True
+IDN.022,Kota Dumai,Riau,0.4766,0.6476,lebar_jalan,0.0,0.0,True
+IDN.023,Kabupaten Bengkalis,Riau,0.8888,1.2791,lebar_jalan,0.0,0.0,True
+IDN.024,Kabupaten Siak,Riau,1.0892,3.0344,lebar_jalan,0.0,0.0,True
+IDN.025,Kota Jambi,Jambi,1.3314,1.2373,seimbang,0.0,0.0,True
+IDN.026,Kabupaten Muaro Jambi,Jambi,2.22,1.8045,jarak,0.0,0.0,True
+IDN.027,Kabupaten Batanghari,Jambi,0.6391,2.3388,lebar_jalan,0.0,0.0,True
+IDN.028,Kota Sungai Penuh,Jambi,1.4884,1.3545,seimbang,0.0,0.0,True
+IDN.029,Kota Palembang,Sumatera Selatan,1.6995,3.1182,lebar_jalan,0.0,0.0,True
+IDN.030,Kabupaten Banyuasin,Sumatera Selatan,0.2254,3.0911,lebar_jalan,0.0,0.0,True
+IDN.031,Kota Prabumulih,Sumatera Selatan,1.7404,1.0302,jarak,0.0,0.0,True
+IDN.032,Kabupaten Ogan Komering Ilir,Sumatera Selatan,0.5604,1.742,lebar_jalan,0.0,0.0,True
+IDN.033,Kota Lubuklinggau,Sumatera Selatan,0.2756,1.1725,lebar_jalan,0.0,0.0,True
+IDN.034,Kota Bandar Lampung,Lampung,2.662,1.126,jarak,0.0,0.0,True
+IDN.035,Kabupaten Lampung Selatan,Lampung,2.7072,0.407,jarak,0.0,0.0,True
+IDN.036,Kota Metro,Lampung,2.2827,2.0677,seimbang,0.0,0.0,True
+IDN.037,Kabupaten Lampung Tengah,Lampung,0.9225,1.7578,lebar_jalan,0.0,0.0,True
+IDN.038,Kabupaten Pesawaran,Lampung,0.3637,0.4493,lebar_jalan,0.0,0.0,True
+IDN.039,Kota Batam,Kepulauan Riau,1.9474,1.1081,jarak,0.0,0.0,True
+IDN.040,Kabupaten Bintan,Kepulauan Riau,1.2884,2.934,lebar_jalan,0.0,0.0,True
+IDN.041,Kota Tanjungpinang,Kepulauan Riau,0.4295,0.9947,lebar_jalan,0.0,0.0,True
+IDN.042,Kota Pangkal Pinang,Kepulauan Bangka Belitung,1.437,0.7202,jarak,0.0,0.0,True
+IDN.043,Kabupaten Bangka,Kepulauan Bangka Belitung,0.1928,1.7194,lebar_jalan,0.0,0.0,True
+IDN.044,Kota Tangerang,Banten,2.5552,3.1584,lebar_jalan,0.0,0.0,True
+IDN.045,Kabupaten Tangerang,Banten,0.7987,1.002,lebar_jalan,0.0,0.0,True
+IDN.046,Kota Cilegon,Banten,1.8888,2.2492,seimbang,0.0,0.0,True
+IDN.047,Kabupaten Serang,Banten,0.9416,2.5087,lebar_jalan,0.0,0.0,True
+IDN.048,Kota Tangerang Selatan,Banten,1.5042,0.9891,jarak,0.0,0.0,True
+IDN.049,Kota Administrasi Jakarta Pusat,DKI Jakarta,1.5761,2.4118,lebar_jalan,0.0,0.0,True
+IDN.050,Kota Administrasi Jakarta Barat,DKI Jakarta,0.5991,1.3666,lebar_jalan,0.0,0.0,True
+IDN.051,Kota Administrasi Jakarta Selatan,DKI Jakarta,2.7179,2.1337,jarak,0.0,0.0,True
+IDN.052,Kota Administrasi Jakarta Timur,DKI Jakarta,2.1929,2.1372,seimbang,0.0,0.0,True
+IDN.053,Kota Administrasi Jakarta Utara,DKI Jakarta,2.6366,1.8537,jarak,0.0,0.0,True
+IDN.054,Kota Bandung,Jawa Barat,2.516,0.5618,jarak,0.0,0.0,True
+IDN.055,Kabupaten Bandung,Jawa Barat,1.7143,2.7224,lebar_jalan,0.0,0.0,True
+IDN.056,Kota Bekasi,Jawa Barat,2.5891,1.2303,jarak,0.0,0.0,True
+IDN.057,Kabupaten Bekasi,Jawa Barat,0.3389,0.8409,lebar_jalan,0.0,0.0,True
+IDN.058,Kota Bogor,Jawa Barat,0.6292,0.4182,jarak,0.0,0.0,True
+IDN.059,Kabupaten Bogor,Jawa Barat,0.2221,2.0136,lebar_jalan,0.0,0.0,True
+IDN.060,Kota Depok,Jawa Barat,0.9784,2.2649,lebar_jalan,0.0,0.0,True
+IDN.061,Kabupaten Cianjur,Jawa Barat,1.1494,0.3481,jarak,0.0,0.0,True
+IDN.062,Kabupaten Sukabumi,Jawa Barat,0.8326,1.7851,lebar_jalan,0.0,0.0,True
+IDN.063,Kota Sukabumi,Jawa Barat,2.3376,0.9568,jarak,0.0,0.0,True
+IDN.064,Kota Semarang,Jawa Tengah,1.0632,2.171,lebar_jalan,0.0,0.0,True
+IDN.065,Kabupaten Semarang,Jawa Tengah,0.8585,0.8057,seimbang,0.0,0.0,True
+IDN.066,Kota Surakarta,Jawa Tengah,1.5653,2.3037,lebar_jalan,0.0,0.0,True
+IDN.067,Kabupaten Sukoharjo,Jawa Tengah,0.4805,1.4215,lebar_jalan,0.0,0.0,True
+IDN.068,Kota Magelang,Jawa Tengah,2.2659,3.0165,lebar_jalan,0.0,0.0,True
+IDN.069,Kabupaten Magelang,Jawa Tengah,0.3013,0.6988,lebar_jalan,0.0,0.0,True
+IDN.070,Kota Pekalongan,Jawa Tengah,2.7646,1.2891,jarak,0.0,0.0,True
+IDN.071,Kabupaten Pekalongan,Jawa Tengah,2.1851,0.6291,jarak,0.0,0.0,True
+IDN.072,Kota Tegal,Jawa Tengah,0.6365,2.9816,lebar_jalan,0.0,0.0,True
+IDN.073,Kabupaten Tegal,Jawa Tengah,0.1149,2.8443,lebar_jalan,0.0,0.0,True
+IDN.074,Kota Surabaya,Jawa Timur,2.3017,1.048,jarak,0.0,0.0,True
+IDN.075,Kabupaten Sidoarjo,Jawa Timur,2.0085,2.214,seimbang,0.0,0.0,True
+IDN.076,Kota Malang,Jawa Timur,2.0683,2.6699,lebar_jalan,0.0,0.0,True
+IDN.077,Kabupaten Malang,Jawa Timur,2.1824,1.9101,seimbang,0.0,0.0,True
+IDN.078,Kota Kediri,Jawa Timur,0.2999,1.836,lebar_jalan,0.0,0.0,True
+IDN.079,Kabupaten Kediri,Jawa Timur,1.0679,1.0014,seimbang,0.0,0.0,True
+IDN.080,Kota Blitar,Jawa Timur,0.4128,0.57,lebar_jalan,0.0,0.0,True
+IDN.081,Kabupaten Blitar,Jawa Timur,2.4304,2.9019,seimbang,0.0,0.0,True
+IDN.082,Kota Madiun,Jawa Timur,1.7829,2.9112,lebar_jalan,0.0,0.0,True
+IDN.083,Kabupaten Madiun,Jawa Timur,0.9934,2.136,lebar_jalan,0.0,0.0,True
+IDN.084,Kabupaten Jember,Jawa Timur,0.2716,1.2832,lebar_jalan,0.0,0.0,True
+IDN.085,Kabupaten Banyuwangi,Jawa Timur,0.9397,1.3127,lebar_jalan,0.0,0.0,True
+IDN.086,Kota Yogyakarta,DI Yogyakarta,0.978,2.4053,lebar_jalan,0.0,0.0,True
+IDN.087,Kabupaten Sleman,DI Yogyakarta,2.0699,2.9016,lebar_jalan,0.0,0.0,True
+IDN.088,Kabupaten Bantul,DI Yogyakarta,1.8214,2.8726,lebar_jalan,0.0,0.0,True
+IDN.089,Kabupaten Gunungkidul,DI Yogyakarta,2.4955,2.5616,seimbang,0.0,0.0,True
+IDN.090,Kota Denpasar,Bali,1.375,2.1619,lebar_jalan,0.0,0.0,True
+IDN.091,Kabupaten Badung,Bali,0.4229,0.544,lebar_jalan,0.0,0.0,True
+IDN.092,Kabupaten Gianyar,Bali,2.0258,0.7687,jarak,0.0,0.0,True
+IDN.093,Kabupaten Tabanan,Bali,2.1541,2.9058,lebar_jalan,0.0,0.0,True
+IDN.094,Kabupaten Buleleng,Bali,1.6154,2.0586,lebar_jalan,0.0,0.0,True
+IDN.095,Kabupaten Karangasem,Bali,2.1816,0.3267,jarak,0.0,0.0,True
+IDN.096,Kota Mataram,Nusa Tenggara Barat,1.4332,0.5943,jarak,0.0,0.0,True
+IDN.097,Kabupaten Lombok Barat,Nusa Tenggara Barat,1.5114,2.2242,lebar_jalan,0.0,0.0,True
+IDN.098,Kota Kupang,Nusa Tenggara Timur,1.2544,0.3147,jarak,0.0,0.0,True
+IDN.099,Kabupaten Kupang,Nusa Tenggara Timur,0.1686,0.7663,lebar_jalan,0.0,0.0,True
+IDN.100,Kabupaten Flores Timur,Nusa Tenggara Timur,0.3913,1.8913,lebar_jalan,0.0,0.0,True
+IDN.101,Kota Pontianak,Kalimantan Barat,0.1849,2.3065,lebar_jalan,0.0,0.0,True
+IDN.102,Kabupaten Kubu Raya,Kalimantan Barat,1.8183,2.1907,lebar_jalan,0.0,0.0,True
+IDN.103,Kota Banjarmasin,Kalimantan Selatan,0.9488,0.9504,seimbang,0.0,0.0,True
+IDN.104,Kota Balikpapan,Kalimantan Timur,1.4731,2.3653,lebar_jalan,0.0,0.0,True
+IDN.105,Kota Samarinda,Kalimantan Timur,2.5504,0.988,jarak,0.0,0.0,True
+IDN.106,Kabupaten Kutai Kartanegara,Kalimantan Timur,0.7731,1.2437,lebar_jalan,0.0,0.0,True
+IDN.107,Kota Makassar,Sulawesi Selatan,1.208,2.4648,lebar_jalan,0.0,0.0,True
+IDN.108,Kabupaten Gowa,Sulawesi Selatan,2.14,2.1839,seimbang,0.0,0.0,True
+IDN.109,Kota Manado,Sulawesi Utara,0.7178,2.7627,lebar_jalan,0.0,0.0,True
+IDN.110,Kota Palu,Sulawesi Tengah,0.3078,2.2071,lebar_jalan,0.0,0.0,True
+IDN.111,Kota Kendari,Sulawesi Tenggara,0.8823,1.9481,lebar_jalan,0.0,0.0,True

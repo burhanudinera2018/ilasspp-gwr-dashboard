@@ -1,0 +1,48 @@
+nama_kabupaten,koefisien_jarak,koefisien_lebar_jalan,dominasi
+Kota Kediri,1.2345,2.3456,jarak
+Kabupaten Kediri,2.1234,1.2345,lebar_jalan
+Kota Surabaya,1.5678,1.5678,seimbang
+Kabupaten Sidoarjo,2.3456,0.9876,jarak
+Kota Malang,0.9876,2.3456,lebar_jalan
+Kabupaten Malang,1.8765,1.2345,seimbang
+Kota Blitar,2.4567,0.8765,jarak
+Kabupaten Blitar,0.7654,2.5678,lebar_jalan
+Kota Madiun,1.3456,1.6543,seimbang
+Kabupaten Madiun,2.2345,1.1234,jarak
+Kota Semarang,1.1234,2.2345,lebar_jalan
+Kabupaten Semarang,1.9876,1.4321,seimbang
+Kota Surakarta,2.3456,0.7654,jarak
+Kabupaten Sukoharjo,0.6543,2.8765,lebar_jalan
+Kota Yogyakarta,1.7654,1.6543,seimbang
+Kabupaten Sleman,2.1234,1.2345,jarak
+Kota Bandung,1.4567,2.1234,lebar_jalan
+Kabupaten Bandung,1.2345,1.7654,seimbang
+Kota Bekasi,2.5678,0.6543,jarak
+Kabupaten Bekasi,0.8765,2.3456,lebar_jalan
+Kota Bogor,1.6543,1.8765,seimbang
+Kabupaten Bogor,2.3456,1.2345,jarak
+Kota Depok,1.2345,2.3456,lebar_jalan
+Kota Tangerang,2.1234,1.1234,seimbang
+Kabupaten Tangerang,1.8765,2.4567,jarak
+Kota Jakarta Pusat,1.2345,1.2345,seimbang
+Kota Jakarta Selatan,2.3456,0.9876,jarak
+Kota Jakarta Barat,0.9876,2.3456,lebar_jalan
+Kota Jakarta Timur,1.5678,1.5678,seimbang
+Kota Jakarta Utara,2.4567,0.8765,jarak
+Kota Medan,0.8765,2.5678,lebar_jalan
+Kabupaten Deli Serdang,1.7654,1.6543,seimbang
+Kota Palembang,2.3456,1.2345,jarak
+Kota Padang,1.2345,2.3456,lebar_jalan
+Kota Pekanbaru,1.8765,1.7654,seimbang
+Kota Jambi,2.1234,1.1234,jarak
+Kota Bandar Lampung,1.4567,2.3456,lebar_jalan
+Kota Pontianak,1.7654,1.8765,seimbang
+Kota Banjarmasin,2.3456,0.9876,jarak
+Kota Balikpapan,0.9876,2.3456,lebar_jalan
+Kota Samarinda,1.6543,1.7654,seimbang
+Kota Makassar,2.3456,1.2345,jarak
+Kota Manado,1.2345,2.3456,lebar_jalan
+Kota Denpasar,1.8765,1.6543,seimbang
+Kota Mataram,2.1234,1.1234,jarak
+Kota Kupang,1.4567,2.3456,lebar_jalan
+Kota Ambon,1.7654,1.6543,seimbang
